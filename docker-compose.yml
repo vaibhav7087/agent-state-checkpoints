@@ -1,0 +1,9 @@
+services:
+  agent-runner:
+    build: .
+    volumes:
+      - .:/workspace
+      - ./data:/workspace/data
+    environment:
+      - SQLITE_DB_PATH=/workspace/data/checkpoints.db
+    command: python -m src.state_machine
